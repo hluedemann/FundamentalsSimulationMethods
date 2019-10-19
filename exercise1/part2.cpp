@@ -2,6 +2,7 @@
 *
 *   Author: Hauke Lüdemann
 *   Exercise: Sheet 1 part 2
+*   Topic: Near-cancellation of numbers
 *   Due date: 23.10.2019
 **/
 
@@ -99,6 +100,6 @@ int main()
 
     // Uncomment this to evaluate the function for small values.
     // Adjust this function to ese f(x) or adjustedF(x).
-    printResultForSmallValues();
+    // printResultForSmallValues();
 }
 
