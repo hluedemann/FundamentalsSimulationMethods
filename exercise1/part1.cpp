@@ -46,5 +46,8 @@ int main()
         printf("Part 1.3:\n");
         printf("%e %e\n", x, x / y);
     }
+
     return 0;
+
+    
 }

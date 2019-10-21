@@ -1,1 +1,88 @@
-\section*{First Exercise}
+\section{Pitfalls of integer and floating point arithmetic}
+
+The aim of the first exercise is to illustrate some pitfalls one can encounter when dealing
+with in integer and floating point arithmetic in C and C++.\\
+For this purpos some code samples are provided which should be executed and the results 
+explained.
+
+\subsection*{1. Sample}
+The first code sample shows the difference between integer and floating point devision.
+\begin{lstlisting}[language=C++]
+    int   i = 7;
+    float y = 2*(i/2);
+    float z = 2*(i/2.);
+    printf("%e %e \n", y,z); 
+\end{lstlisting}
+If executed this code returns the following numbers to the console 
+for $x$ and $y$.
+
+\begin{lstlisting}[language=C++]
+    y = 6.000000e+00
+    x = 7.000000e+00
+\end{lstlisting}
+
+Clearly the first number is wrong. The reason for this is that the calculation of 
+$y$ is done as an integer devision. This devision cuts of the floating part of the number.
+So the calculation $7/2$ gives the result 3. This is then multiplied by 2 and cast into a
+floating point number. But if one of the numbers of the devision is marked as a floating 
+point number like $7/2.$ then the correct result is calculated.
+
+\subsection*{2. Sample}
+\begin{lstlisting}[language=C++]
+    double a = 1.0e17;
+    double b = -1.0e15;
+    double c = 1.0;
+    double x = (a + b) + c;
+    double y = a + (b + c);
+
+\end{lstlisting}
+
+If this second code sample is executed the following 
+result is printed to the console for $x$ and $y$.
+
+\begin{lstlisting}[language=C++]
+    x = 1.000000e+00
+    y = 0.000000e+00 
+    
+\end{lstlisting}
+
+Again it is clear that only the result for $x$ is correct.
+The problem with the second part is the summation of $b$
+and $c$ which are numbers of very different magnitude.
+When adding the numbers the small value will be converted
+into a representation with the same exponent as the 
+larg number. But the mantissa of the floating point number
+can only cover a certain range and so the 1.0 will be represented
+as a 0.0. \\
+As a result the addition of the small and the large number 
+returns the large number as a result and hence the final 
+result is incorrect.
+This problem does not occure if the two large numbers are 
+substracted first.\\
+So the reason why the law of associativity is broken in this
+example is that computers can only add numbers with the same
+exponent and that the mantissa of a floating point number
+can only cover numbers in a certain range.\\
+
+
+\subsection*{3. Sample}
+
+\begin{lstlisting}[language=C++]
+    float x = 1e20;
+    float y;
+    y = x * x;
+    printf("%e %e\n", x,y/x);
+
+\end{lstlisting}
+
+The result of the last sample code is:
+\begin{lstlisting}[language=C++]
+    x = 1.000000e+20 
+    y/x = 0.000000e+00
+    
+\end{lstlisting}
+
+The problem in this case is that the maximum number that
+can be represented with a float is approximately $3,4\textrm{e}38$
+and therefore $y=1\textrm{e}40$ will actually be represented as infinity.
+This is the reason why the devision $y/x$ gives as a result 0.0.\\

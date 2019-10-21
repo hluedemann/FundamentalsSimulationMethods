@@ -1,6 +1,9 @@
+CMakeLists.txt.user
 build/*
 latex/*
 
 !latex/main.tex
 !latex/main.pdf
 !/latex/content
+
+

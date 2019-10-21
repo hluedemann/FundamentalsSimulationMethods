@@ -1,1 +1,72 @@
-\section*{Second Exercise}
+\section{Near-cancelation of numbers}
+
+In this section the computation of the function
+
+\begin{align}
+    f(x) = \frac{x+e^{-x}-1}{x^2}
+\end{align}
+
+should be analysed.
+
+\subsection{Calculating the lim.}
+
+First the limit $\lim_{x\to 0}f(x)$ should be calculated. This can easily be done with L'Hôpital's rule.
+\begin{align}
+\lim_{x\to 0}\frac{x+e^{-x}-1}{x^2} = \lim_{x\to 0} \frac{1-e^{-x}}{2x} = \lim_{x\to 0}\frac{1+e^{-x}}{2}=\frac{1}{2}   
+\end{align}
+
+
+\subsection{Interactive program to compute the function.}
+
+The interactive program for the computation of this function is lokated
+in the file \textit{part2.cpp}. For easy compilation
+a \textit{CMakeLists.txt} file is included to use with \textit{cmake}.
+For simplicity this file also contains the adjustments of
+the following sections which are enabled by default. 
+For the execution of only the parts belonging to this section of the exercise
+comment out the parts in the source code (as documented).
+
+
+\subsection{Analyse critical small values.}
+
+If the function is evaluated for small values the formula goes wrong.
+To determine the value of x for which this happens, the function
+is evaluated for a range of small values and the results are plotted
+in figure \ref{fig::f}.\\
+It can be easily seen that for values of x arount $5\cdot 10^{-6}$ the formula
+fails.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../analysis/f.pdf}
+    \caption{Evaluation of the function for small values.}
+    \label{fig::f}
+\end{figure}
+
+
+\subsection{Explanation for the failure of the formula for small values}
+
+
+\subsection{Adjustment for the calculation of the function.}
+
+To get around the problem with the small values an if-statement can be
+added to the execution of the function. This conditional case
+will only be executed if the values of x are beneath the threshhold determined 
+previously.\\
+In order to get correct results for values beneath this threshhold
+a different formular is needed. This can be done with the taylor
+expansion of the function (1) which is given by:
+
+\begin{align}
+    f(x) = \sum_{n=0}^{\inf}\frac{(-x)^n}{(n+2)!}    
+\end{align} 
+
+Using the first three terms of this formular as an adustment to the function the overall 
+results become reasonable. This is illustrated in figure \ref{fig::adjustedF}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../analysis/adjustedF.pdf}
+    \caption{Evaluation of the adjusted function for small values.}
+    \label{fig::adjustedF}
+\end{figure}
