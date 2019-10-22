@@ -45,6 +45,22 @@ fails.
 
 \subsection{Explanation for the failure of the formula for small values}
 
+From the taylor expansion it can be gathered that the second order term is the relevant term for small values of $x$. As such, given a mantissa of length $m$ and a precision $p$, the evaluation fails if
+\begin{eqnarray}
+    x^2 < 2^{-(m-p)}\\
+    \Rightarrow x < 2^{-\frac{m-p}{2}}
+\end{eqnarray}
+since in those cases, $x^2$ cannot be reepresented to the given precision within the exponential function.\\
+for a double ($m = 53$) with a precision of $p = 3$, this turns out to be
+\begin{equation}
+    x_{min} = 2^{-\frac{53 - 3}{2}} = 2^{-25} \approx 2.98\cdot 10^{-8}
+\end{equation}
+
+to get good values for the function, the third order term of the taylor expansion should also be included, which similarily breaks down at
+\begin{equation}
+    x_{min, err} = 2^{-\frac{m-p}{3}} \approx 9.61*10^{-6}
+\end{equation}
+
 
 \subsection{Adjustment for the calculation of the function.}
 
