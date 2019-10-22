@@ -21,8 +21,8 @@ for $x$ and $y$.
     x = 7.000000e+00
 \end{lstlisting}
 
-Clearly the first number is wrong. The reason for this is that the calculation of 
-$y$ is done as an integer devision. This devision cuts of the floating part of the number.
+Clearly the first number is not the expected result. The reason for this is that the calculation of 
+$\textnormal{i}/2$ is done as an integer devision. This devision cuts of the floating part of the number.
 So the calculation $7/2$ gives the result 3. This is then multiplied by 2 and cast into a
 floating point number. But if one of the numbers of the devision is marked as a floating 
 point number like $7/2.$ then the correct result is calculated.
@@ -30,7 +30,7 @@ point number like $7/2.$ then the correct result is calculated.
 \subsection*{2. Sample}
 \begin{lstlisting}[language=C++]
     double a = 1.0e17;
-    double b = -1.0e15;
+    double b = -1.0e17;
     double c = 1.0;
     double x = (a + b) + c;
     double y = a + (b + c);
@@ -52,11 +52,11 @@ and $c$ which are numbers of very different magnitude.
 When adding the numbers the small value will be converted
 into a representation with the same exponent as the 
 larg number. But the mantissa of the floating point number
-can only cover a certain range and so the 1.0 will be represented
-as a 0.0. \\
-As a result the addition of the small and the large number 
-returns the large number as a result and hence the final 
-result is incorrect.
+can only cover a certain range and 1.0 falls beneath the 
+machine precision. \\
+As a result c is not significant in the addition of the small
+and the large number and therefor only the large number is returned 
+which leads to an incorrect final result.
 This problem does not occure if the two large numbers are 
 substracted first.\\
 So the reason why the law of associativity is broken in this
@@ -78,11 +78,11 @@ can only cover numbers in a certain range.\\
 The result of the last sample code is:
 \begin{lstlisting}[language=C++]
     x = 1.000000e+20 
-    y/x = 0.000000e+00
+    y/x = inf
     
 \end{lstlisting}
 
 The problem in this case is that the maximum number that
 can be represented with a float is approximately $3,4\textrm{e}38$
 and therefore $y=1\textrm{e}40$ will actually be represented as infinity.
-This is the reason why the devision $y/x$ gives as a result 0.0.\\
+This is the reason why the devision $y/x$ also gives infinity as a result.\\

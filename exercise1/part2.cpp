@@ -44,18 +44,21 @@ double adjustedF(double x)
  */
 double getUserInput()
 {
+    std::string input;
     double x;
-
     std::cout << "Enter a value for x." << std::endl;
-    std::cin >> x;
+    std::cin >> input;
 
-    if(x == 0.0)
+    try
     {
-        std::cerr << "The function is not defined for x=0. Enter a different values." << std::endl;
-
-         x = getUserInput();
+        x = std::stod(input);
     }
-
+    catch(...)
+    {
+        std::cerr << "Invalid value entered please enter again." << std::endl;;
+        x = getUserInput();
+    }
+    
     return x;
 }
 
@@ -92,14 +95,27 @@ void printResultForSmallValues()
 }
 
 
-int main()
+int main(int argc, char** argv)
 {
-    // Uncomment this for the interactive program.
+    int id = 0;
+    if(argc > 1)
+    {
+        id = atoi(argv[1]);
+    }
     // Adjust this function to evaluate f(x) or adjustedF(x)
-    calculateUserInput();
-
-    // Uncomment this to evaluate the function for small values.
+    if(id==0)
+    {
+        calculateUserInput();
+    }
     // Adjust this function to ese f(x) or adjustedF(x).
-    // printResultForSmallValues();
+    else if(id == 1)
+    {
+        printResultForSmallValues();
+    }
+    else
+    {
+        printf("Id 0: get user input\nId 1: small value breakdown\n");
+    }
+    
 }
 

@@ -44,7 +44,7 @@ int main()
         y = x * x;
 
         printf("Part 1.3:\n");
-        printf("%e %e\n", x, x / y);
+        printf("%e %e\n", x, y / x);
     }
 
     return 0;
