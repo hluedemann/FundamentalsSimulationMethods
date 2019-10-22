@@ -1,6 +1,6 @@
 /** Fundamentals of Simulation Methods
 *
-*   Author: Hauke Lüdemann
+*   Author: H.Lüdemann, F.Walberg, D.Wolf
 *   Exercise: Sheet 1 part 2
 *   Topic: Near-cancellation of numbers
 *   Due date: 23.10.2019
