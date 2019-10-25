@@ -1,0 +1,44 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc}
+\usepackage{fullpage} % changes the margin
+\usepackage[final]{pdfpages}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{listings}
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{amsmath}
+
+% No idents
+\setlength{\parindent}{0em}
+
+\lstdefinestyle{customc++}{
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C++,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstset{style=customc++}
+
+\begin{document}
+
+\large\textbf{Ruprecht-Karls University of Heidelberg} \hfill \textbf{Teammates:} \\\\
+\normalsize Institut für Theoretische Astrophysik \hfill 
+H.Lüdemann (3589643),  \\
+Prof. Dr. Ralf S. Klessen \hfill  D.Wolf (3548138) \\
+Tutor: Marcelo Barraza \hfill F.Wallberg (3548199)\\
+Exercise 2 \\
+
+
+\input{content/exercise1.tex}
+\input{content/exercise2.tex}
+
+\end{document}
