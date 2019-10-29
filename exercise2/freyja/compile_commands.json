@@ -1,0 +1,77 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-Iinc/integrator",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja",
+        "file": "src/main.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-Iinc/integrator",
+            "-o",
+            "obj/integrator/rk_classic.o",
+            "src/integrator/rk_classic.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja",
+        "file": "src/integrator/rk_classic.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-Iinc/integrator",
+            "-o",
+            "obj/double_pendulum.o",
+            "src/double_pendulum.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja",
+        "file": "src/double_pendulum.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-Iinc/integrator",
+            "-o",
+            "obj/integrator/dopri45.o",
+            "src/integrator/dopri45.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja",
+        "file": "src/integrator/dopri45.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-Iinc/integrator",
+            "-o",
+            "obj/integrator/integrator.o",
+            "src/integrator/integrator.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja",
+        "file": "src/integrator/integrator.c"
+    }
+]

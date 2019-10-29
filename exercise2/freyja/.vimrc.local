@@ -1,0 +1,10 @@
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+augroup END
+set noexpandtab
+let &path.="inc,inc/integrator,"
+set makeprg=make\ -C\ /home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja
+nnoremap <F4> :make!<cr>
+nnoremap <F5> :!/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise2/freyja/double_pendulum<cr>
+autocmd vimenter * call OpenNerdTree()
