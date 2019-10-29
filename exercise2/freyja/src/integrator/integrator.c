@@ -123,7 +123,7 @@ itg_integrate
         {
             buff_size *= 2;
             if(maxiter < buff_size) 
-                buff_size = maxiter;
+                buff_size = maxiter + 1;
             if(y_arr)
             {
                 Y = realloc(Y, buff_size*itg->n*sizeof(double));

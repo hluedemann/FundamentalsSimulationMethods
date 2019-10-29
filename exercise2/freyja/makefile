@@ -30,8 +30,6 @@ directories:; mkdir -p $(OBJDIRS)
 clean: ; rm -f $(TARGETS) $(OBJ) 
 depend: ; ./gcc-makedepend $(addprefix -p ,$(OBJDIRS)) $(CFLAGS) $(INCLUDES) $(SRC)
 # DO NOT DELETE
-obj/integrator.o: src/integrator/integrator.c inc/integrator/integrator.h
-obj/integrator/integrator.o: src/integrator/integrator.c inc/integrator/integrator.h
 obj/dopri45.o: src/integrator/dopri45.c inc/integrator/dopri45.h \
  inc/integrator/integrator.h
 obj/integrator/dopri45.o: src/integrator/dopri45.c inc/integrator/dopri45.h \
@@ -44,6 +42,8 @@ obj/rk2.o: src/integrator/rk2.c inc/integrator/rk2.h \
  inc/integrator/integrator.h
 obj/integrator/rk2.o: src/integrator/rk2.c inc/integrator/rk2.h \
  inc/integrator/integrator.h
+obj/integrator.o: src/integrator/integrator.c inc/integrator/integrator.h
+obj/integrator/integrator.o: src/integrator/integrator.c inc/integrator/integrator.h
 obj/double_pendulum.o: src/double_pendulum.c inc/double_pendulum.h
 obj/integrator/double_pendulum.o: src/double_pendulum.c inc/double_pendulum.h
 obj/main.o: src/main.c inc/integrator/rk2.h inc/integrator/integrator.h \

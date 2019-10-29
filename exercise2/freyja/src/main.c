@@ -39,7 +39,7 @@ main()
 	params.l1 = 2;
 	params.l2 = 1;
 
-	integrator_t *itg = rk_alloc(4, RTOL, ATOL);
+	integrator_t *itg = rk2_alloc(4, RTOL, ATOL);
 
 	double initial_state[] = {50.0/180.0*M_PI, -120.0/180.0*M_PI, 0, 0};
 	itg_initialize(itg, initial_state, 0, &params, DELTA_T, pendulum_differential, pendulum_terminate, NULL);
