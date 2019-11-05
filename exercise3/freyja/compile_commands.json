@@ -1,0 +1,62 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/leapfrog.o",
+            "src/leapfrog.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise3/freyja",
+        "file": "src/leapfrog.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise3/freyja",
+        "file": "src/main.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/gnuplot_i.o",
+            "src/gnuplot_i.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise3/freyja",
+        "file": "src/gnuplot_i.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/n_grav.o",
+            "src/n_grav.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise3/freyja",
+        "file": "src/n_grav.c"
+    }
+]
