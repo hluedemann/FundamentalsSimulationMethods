@@ -107,6 +107,10 @@ class TreeClass:
         # yet finished: only the first node is finished.
         #
 
+        ## Parameter to print debug information
+        self.currentInteractionCount = 0
+        self.interactionCount = np.zeros(len(self.particles))
+
     #
     # Method to add a new (empty) node to the list
     #
@@ -284,9 +288,12 @@ class TreeClass:
                     for ix in range(0,2):
                         id   = self.nodelist[nodeid].childrenids[ix,iy,iz]
                         cm,m = self.computemultipoles(id)
+                        mass += m
+                        cenm += m * np.array(cm)
                         # ....TO BE FILLED IN....
-                        print ("Please replace this print statement with your own code")
+                        # print ("Please replace this print statement with your own code")
 
+            cenm /= mass
         #
         # Store center of mass and mass into this node
         #
@@ -305,6 +312,8 @@ class TreeClass:
         #
         # Get the position of the particle (its mass is by assumption 1.)
         #
+        self.currentInteractionCount += 1
+
         x     = [0.,0.,0.]
         x[:]  = self.particles[pid][0:3]
         mass  = 1.0
@@ -333,8 +342,13 @@ class TreeClass:
             # But avoid self-attraction!
             #
             # ....TO BE FILLED IN....
-            print ("Please replace this print statement with your own code")
 
+            
+
+            if pid != self.nodelist[nodeid].particleid:
+                force = mass * m * (np.array(cm) - np.array(x)) / (r**2 + 0.001**2)**(3/2)
+
+            # print ("Please replace this print statement with your own code")
         else:
             #
             # We must walk further down the tree
@@ -355,8 +369,14 @@ class TreeClass:
     #
     def allgforces(self,anglemax):
         nrp = len(self.particles)
+
         for pid in range(nrp):
             self.forces[pid][:] = self.gforce(0,pid,anglemax)
+            self.interactionCount[pid] = self.currentInteractionCount
+            self.currentInteractionCount = 0
+
+        
+
 
         
 
