@@ -36,7 +36,7 @@ if __name__ == "__main__":
     for t in range(len(x)):
         y_sim[t] = linear(np.log(x[t]), popt_Tree[0], popt_Tree[1])
     
-    ax1.plot(x, np.exp(y_sim), 'r-', label='linear regression, m = {}'.format(np.round(popt_Tree[1], 2)))
+    ax1.plot(x, np.exp(y_sim), 'r-', label='linear regression, m = {} $\pm$ {} [68%]'.format(np.round(popt_Tree[1], 2), np.round(np.sqrt(pcov_Tree[1,1]), 2)))
     
     ax2 = fig.add_subplot(122)
     ax2.set_ylabel('Execution time in s')
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     for t in range(len(x)):
         y_sim[t] = linear(np.log(x[t]), popt_Direct[0], popt_Direct[1])
     
-    ax2.plot(x, np.exp(y_sim), 'r-', label='linear regression, m = {}'.format(np.round(popt_Direct[1], 2)))
+    ax2.plot(x, np.exp(y_sim), 'r-', label='linear regression, m = {} $\pm$ {} [68%]'.format(np.round(popt_Direct[1], 2), np.round(np.sqrt(pcov_Direct[1,1]), 2)))
     
     plt.tight_layout()
     ax1.legend()
