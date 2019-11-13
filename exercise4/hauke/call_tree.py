@@ -103,17 +103,17 @@ if __name__ == "__main__":
     # Note: This takes very long
     ##########
 
-    if False:
+    if False: # Set this to run multiple simulations
 
         # Create the header to save the data
-        outputPath = "result2.txt"
+        outputPath = "result.txt"
         f=open(outputPath,'a')
-        f.write("nParticles, angle, timeTree, timeFull, error, interaction\n")
+        f.write("nParticles,angle,timeTree,timeFull,error,interaction\n")
         f.close()
 
         # Tarameters to simulate
         angles = np.array([0.2, 0.4, 0.8])
-        numberParticles = np.array([40000])
+        numberParticles = np.array([5000, 10000, 20000, 40000])
 
 
         for nparticles in numberParticles:
@@ -144,7 +144,7 @@ if __name__ == "__main__":
             for angle in angles:
 
                 timeTree, forceTree, interaction = runTree(q, nparticles, angle, True)
-
+                
                 errorPerParticle =  np.sum((np.array(forceTree) - np.array(forceExact))**2, axis=1)**(1/2) / np.sum((np.array(forceExact))**2, axis=1)**(1/2)
                 error = np.sum(errorPerParticle)/len(forceExact[:,0])
 
@@ -163,4 +163,5 @@ if __name__ == "__main__":
                 plt.hist(errorPerParticle, bins=int(nparticles/200))
                 plt.savefig("errorPlot_{}_{}.pdf".format(nparticles, angle))
                 plt.close()
+                
                 
