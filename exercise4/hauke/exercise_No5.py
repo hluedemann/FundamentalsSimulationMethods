@@ -44,10 +44,10 @@ if __name__ == "__main__":
     ax2.set_xscale('log')
     ax2.set_yscale('log')
     
-    ax2.plot(file1['nParticles'].values[np.argwhere(file1['angle'].values==0.4)], file1['timeFull'].values[np.argwhere(file1['angle'].values==0.4)], marker='+', color='blue', markersize=10, linestyle = 'None', label='raw data - Direct summation')
+    ax2.plot(file1['nParticles'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))], file1['timeFull'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))], marker='+', color='blue', markersize=10, linestyle = 'None', label='raw data - Direct summation')
     
-    popt_Direct, pcov_Direct = curve_fit(linear, np.log(file1['nParticles'].values[np.argwhere(file1['angle'].values==0.4)])[:,0], np.log(file1['timeFull'].values[np.argwhere(file1['angle'].values==0.4)])[:,0])
-    x = np.linspace(np.min(file1['nParticles'].values[np.argwhere(file1['angle'].values==0.4)]), np.max(file1['nParticles'].values[np.argwhere(file1['angle'].values==0.4)]), num=1000)
+    popt_Direct, pcov_Direct = curve_fit(linear, np.log(file1['nParticles'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))])[:,0], np.log(file1['timeFull'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))])[:,0])
+    x = np.linspace(np.min(file1['nParticles'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))]), np.max(file1['nParticles'].values[np.argwhere((file1['angle'].values==0.4) & (file1['error'].values!=0.))]), num=1000)
     y_sim = np.zeros(len(x))
     for t in range(len(x)):
         y_sim[t] = linear(np.log(x[t]), popt_Direct[0], popt_Direct[1])
