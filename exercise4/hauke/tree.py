@@ -367,13 +367,18 @@ class TreeClass:
     #
     # Compute gravity force for all particles
     #
-    def allgforces(self,anglemax):
+    def allgforces(self,anglemax, printProgress):
         nrp = len(self.particles)
+
+        progresCount = 0
 
         for pid in range(nrp):
             self.forces[pid][:] = self.gforce(0,pid,anglemax)
             self.interactionCount[pid] = self.currentInteractionCount
             self.currentInteractionCount = 0
+            if printProgress:
+                print("Progress: ", pid/nrp)
+            
 
         
 
