@@ -1,0 +1,17 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja",
+        "file": "src/main.c"
+    }
+]
