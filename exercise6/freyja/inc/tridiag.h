@@ -41,4 +41,15 @@ tridiag_solve
 	 double* A,
 	 double* b);
 
+/* performes a single step of the jacobi method for the LSE A*x = b
+ * A and b are conserved, x is overwritten with the new solution
+ */
+int
+tridiag_solve_jacobi
+	(size_t N,
+	 double* A,
+	 double* b,
+	 double* x,
+	 double* x1);
+
 #endif /* TRIDIAG_H */

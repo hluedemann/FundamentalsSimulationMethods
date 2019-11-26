@@ -26,6 +26,12 @@
 #define N1 100
 #define N2 1000
 
+#define N_J1 8
+#define N_J2 100
+#define ITER 30
+
+#define BUF 128
+
 int
 main()
 {
@@ -72,15 +78,68 @@ main()
 
 	gnuplot_ctrl* g;
 	g = gnuplot_init();
-	gnuplot_cmd(g, "set terminal png");
-	gnuplot_cmd(g, "set output \"heat_diffusion.png\"");
+	gnuplot_cmd(g, "set key outside");
 
 	gnuplot_setstyle(g, "lines");
 	gnuplot_plot_xy(g, x1, T1, N1, "N = 100");
 	gnuplot_plot_xy(g, x2, T2, N2, "N = 1000");
-	int a;
-	scanf(" %i", &a);
+
+
+	//gnuplot_cmd(g, "set terminal png");
+	//gnuplot_cmd(g, "set terminal tikz createstyle");
+	gnuplot_cmd(g, "set terminal tikz");
+	//gnuplot_cmd(g, "set terminal epslatex color colortext");
+	gnuplot_cmd(g, "set output \"latex/heat_diffusion.tex\"");
+
+	gnuplot_cmd(g, "replot");
 
 	gnuplot_close(g);
 	printf("Residual for %i points: %e\nResidual for %i points: %e\n", N1, res1, N2, res2);
+
+	double* Tj1 = malloc(sizeof(double)*(ITER+1)*N_J1+1);
+	double* Tj2 = malloc(sizeof(double)*(ITER+1)*N_J2);
+
+
+	double resj1 = heat_transfer_jacobi(N_J1, 1, 1, 1, 1, 1, Tj1, ITER);
+	double resj2 = heat_transfer_jacobi(N_J2, 1, 1, 1, 1, 1, Tj2, ITER);
+	printf("Jacobi method with %i iterations:\nResidual for %i points: %e\nResidual for %i points: %e\n",ITER, N_J1, resj1, N_J2, resj2); 
+	double* xj1 = malloc(sizeof(double)*N_J1);
+	double* xj2 = malloc(sizeof(double)*N_J2);
+	
+	double hj1 = 2.0/(N_J1-1);
+	double hj2 = 2.0/(N_J2-1);
+	for(size_t i = 0; i < N_J1; ++i)
+	{
+		xj1[i] = -1+i*hj1;
+	}
+	for(size_t i = 0; i < N_J2; ++i)
+	{
+		xj2[i] = -1+i*hj2;
+	}
+
+	gnuplot_ctrl *g1, *g2;
+	g1 = gnuplot_init();
+	g2 = gnuplot_init();
+	gnuplot_cmd(g1, "set key outside");
+	gnuplot_cmd(g2, "set key outside");
+	
+
+	char* buf = malloc(BUF);
+	for(size_t i = 0; i <= ITER; ++i)
+	{
+		sprintf(buf, "Iteration %zu", i);
+		gnuplot_plot_xy(g1, xj1, Tj1 + N_J1*i, N_J1, buf);
+		gnuplot_plot_xy(g2, xj2, Tj2 + N_J2*i, N_J2, buf);
+		
+	}
+	gnuplot_cmd(g1, "set terminal tikz");
+	gnuplot_cmd(g1, "set output \"latex/heat_diffusion_jacobi_1.tex\"");
+	gnuplot_cmd(g1, "replot");
+	gnuplot_cmd(g2, "set terminal tikz");
+	gnuplot_cmd(g2, "set output \"latex/heat_diffusion_jacobi_2.tex\"");
+	gnuplot_cmd(g2, "replot");
+
+	gnuplot_close(g1);
+	gnuplot_close(g2);
+
 }

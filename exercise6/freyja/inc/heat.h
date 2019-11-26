@@ -31,6 +31,16 @@ heat_transfer
 	 double T_r,
 	 double* T);
 	
+double
+heat_transfer_jacobi
+	(size_t N,
+	 double D,
+	 double eps,
+	 double L,
+	 double T_l,
+	 double T_r,
+	 double* T,
+	 size_t iter);
 
 
 #endif /* HEAT_H */

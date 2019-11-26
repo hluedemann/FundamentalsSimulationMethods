@@ -31,6 +31,6 @@ clean: ; rm -f $(TARGETS) $(OBJ)
 depend: ; ./gcc-makedepend $(addprefix -p ,$(OBJDIRS)) $(CFLAGS) $(INCLUDES) $(SRC)
 # DO NOT DELETE
 obj/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
-obj/heat.o: src/heat.c inc/heat.h inc/tridiag.h
 obj/tridiag.o: src/tridiag.c inc/tridiag.h
+obj/heat.o: src/heat.c inc/heat.h inc/tridiag.h
 obj/main.o: src/main.c inc/tridiag.h inc/heat.h inc/gnuplot_i.h

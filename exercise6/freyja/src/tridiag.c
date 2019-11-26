@@ -17,6 +17,7 @@
  */
 
 #include<stdio.h>
+#include<stdlib.h>
 #include<math.h>
 #include"tridiag.h"
 
@@ -65,5 +66,27 @@ tridiag_solve
 	}
 
 
+	return 0;
+}
+
+
+int
+tridiag_solve_jacobi
+	(size_t N,
+	 double* A,
+	 double* b,
+	 double* x,
+	 double* x1)
+{
+
+	x1[0] = b[0] - A[1]*x[1];
+	x1[0] /= A[0];
+	for(size_t i = 1; i < N-1; ++i)
+	{
+		x1[i] = b[i] - A[3*i+1]*x[i+1] - A[3*i-1]*x[i-1];
+		x1[i] /= A[3*i];
+	}
+	x1[N-1] = b[N-1] - A[N-4]*x[N-2];
+	x1[N-1] /= A[N-3];
 	return 0;
 }
