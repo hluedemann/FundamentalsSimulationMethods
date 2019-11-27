@@ -46,7 +46,7 @@ obj/dsprsax.o: src/nr/dsprsax.c
 obj/nr/dsprsax.o: src/nr/dsprsax.c
 obj/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
 obj/nr/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
-obj/gradient_matrix.o: src/gradient_matrix.c inc/gradient_matrix.h
-obj/nr/gradient_matrix.o: src/gradient_matrix.c inc/gradient_matrix.h
-obj/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
-obj/nr/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
+obj/laplace_matrix.o: src/laplace_matrix.c inc/laplace_matrix.h
+obj/nr/laplace_matrix.o: src/laplace_matrix.c inc/laplace_matrix.h
+obj/main.o: src/main.c inc/nr/nr.h inc/laplace_matrix.h inc/gnuplot_i.h
+obj/nr/main.o: src/main.c inc/nr/nr.h inc/laplace_matrix.h inc/gnuplot_i.h

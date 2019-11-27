@@ -16,14 +16,14 @@
  * =====================================================================================
  */
 
-#include"gradient_matrix.h"
+#include"laplace_matrix.h"
 #include<stdlib.h>
 
 unsigned long* ija;
 double* sa;
 
 void
-alloc_gradient_matrix
+alloc_laplace_matrix
 	(unsigned long N)
 {
 	unsigned long n = N*N*(7*N-6) + 2;
@@ -31,11 +31,11 @@ alloc_gradient_matrix
 	sa  = malloc(n*sizeof(double));
 	for(unsigned long i = 0; i < N*N*N + 1; ++i)
 	{
-		sa[i] = 6;
+		sa[i] = -6;
 	}
 	for(unsigned long i = N*N*N + 1; i < n; ++i)
 	{
-		sa[i] = -1;
+		sa[i] = 1;
 	}
 
 	long curr_index = N*N*N+2;
@@ -86,7 +86,7 @@ alloc_gradient_matrix
 }
 
 void
-free_gradient_matrix()
+free_laplace_matrix()
 {
 	free(ija);
 	free(sa);

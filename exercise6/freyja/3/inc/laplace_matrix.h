@@ -1,12 +1,12 @@
-#ifndef GRADIENT_MATRIX_H
-#define GRADIENT_MATRIX_H
+#ifndef LAPLACE_MATRIX_H
+#define LAPLACE_MATRIX_H
 
 /*
  * =====================================================================================
  *
- *       Filename:  gradient_matrix.h
+ *       Filename:  laplace_matrix.h
  *
- *    Description:  
+ *    Description:  allocator for the finite difference laplace operator as matrix
  *
  *        Version:  1.0
  *        Created:  26/11/19 22:01:46
@@ -23,11 +23,11 @@ extern unsigned long* ija;
 extern double* sa;
 
 void
-alloc_gradient_matrix
+alloc_laplace_matrix
 	(unsigned long N);
 
 void
-free_gradient_matrix();
+free_laplace_matrix();
 
 
 #endif /* MATRIX_H */

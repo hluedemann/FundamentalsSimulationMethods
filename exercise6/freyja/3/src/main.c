@@ -18,21 +18,21 @@
 
 
 #include"nr.h"
-#include"gradient_matrix.h"
+#include"laplace_matrix.h"
 #include"gnuplot_i.h"
 
-#define N 100
+#define N 10
 #define M 1
 #define RHO 1.0
 
 #define ITOL 2
 #define TOL 1e-5
 
-#define MAXITER 10
+#define MAXITER 2
 int
 main()
 {
-	alloc_gradient_matrix(N);
+	alloc_laplace_matrix(N);
 	double* x = calloc(sizeof(double),N*N*N + 1);
 	double* b = calloc(sizeof(double),N*N*N + 1);
 
@@ -46,7 +46,7 @@ main()
 					(j >= N/2 -M) && (j < N/2 + M) &&
 					(k >= N/2 -M) && (k < N/2 + M) )
 				{
-					b[N*N*i + N*j + k + 1] = -RHO;
+					b[N*N*i + N*j + k + 1] = RHO;
 				}
 			}
 		}
@@ -60,16 +60,16 @@ main()
 
 	for(unsigned long i = 0; i < N; ++i)
 	{
-		cut[i] = x[i*(N*N+N+1) + 1];
+		cut[i] = x[i + 1 + 5*(N*N+N)];
 	}
-
+	free_laplace_matrix();
 	
 	gnuplot_ctrl* g;
 	g = gnuplot_init();
 	gnuplot_cmd(g, "set key outside");
 
 	gnuplot_setstyle(g, "lines");
-	gnuplot_plot_x(g, cut, N, "potential along diagonal");
+	gnuplot_plot_x(g, cut, N, "potential trough center");
 
 
 	gnuplot_cmd(g, "set terminal tikz");
