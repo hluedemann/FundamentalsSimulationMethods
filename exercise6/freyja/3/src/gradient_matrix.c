@@ -45,7 +45,7 @@ alloc_gradient_matrix
 		{
 			for(unsigned long k = 0; k < N; ++k)
 			{
-				ija[N*N*i + N*j + k] = curr_index;
+				ija[N*N*i + N*j + k + 1] = curr_index;
 				
 				if(i != 0)
 				{
@@ -80,7 +80,7 @@ alloc_gradient_matrix
 			}
 		}
 	}
-	ija[N*N*N] = curr_index;
+	ija[N*N*N + 1] = curr_index;
 
 
 }

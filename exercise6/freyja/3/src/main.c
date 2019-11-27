@@ -21,20 +21,20 @@
 #include"gradient_matrix.h"
 #include"gnuplot_i.h"
 
-#define N 10
+#define N 100
 #define M 1
 #define RHO 1.0
 
-#define ITOL 1
+#define ITOL 2
 #define TOL 1e-5
 
-#define MAXITER 20
+#define MAXITER 10
 int
 main()
 {
 	alloc_gradient_matrix(N);
-	double* x = calloc(sizeof(double),N*N*N);
-	double* b = calloc(sizeof(double),N*N*N);
+	double* x = calloc(sizeof(double),N*N*N + 1);
+	double* b = calloc(sizeof(double),N*N*N + 1);
 
 	for(unsigned long i = 0; i < N; ++i)
 	{
@@ -46,7 +46,7 @@ main()
 					(j >= N/2 -M) && (j < N/2 + M) &&
 					(k >= N/2 -M) && (k < N/2 + M) )
 				{
-					b[N*N*i + N*j + k] = RHO;
+					b[N*N*i + N*j + k + 1] = -RHO;
 				}
 			}
 		}
@@ -60,7 +60,7 @@ main()
 
 	for(unsigned long i = 0; i < N; ++i)
 	{
-		cut[i] = x[i*(N*N+N+1)];
+		cut[i] = x[i*(N*N+N+1) + 1];
 	}
 
 	
@@ -73,7 +73,8 @@ main()
 
 
 	gnuplot_cmd(g, "set terminal tikz");
-	gnuplot_cmd(g, "set output \"latex/heat_diffusion.tex\"");
+	gnuplot_cmd(g, "set output \"poisson.tex\"");
+	
 
 	gnuplot_cmd(g, "replot");
 

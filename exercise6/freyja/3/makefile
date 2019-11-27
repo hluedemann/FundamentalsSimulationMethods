@@ -36,17 +36,17 @@ obj/asolve.o: src/nr/asolve.c
 obj/nr/asolve.o: src/nr/asolve.c
 obj/atimes.o: src/nr/atimes.c
 obj/nr/atimes.o: src/nr/atimes.c
-obj/dsprsax.o: src/nr/dsprsax.c
-obj/nr/dsprsax.o: src/nr/dsprsax.c
 obj/dsprstx.o: src/nr/dsprstx.c
 obj/nr/dsprstx.o: src/nr/dsprstx.c
 obj/nrutil.o: src/nr/nrutil.c
 obj/nr/nrutil.o: src/nr/nrutil.c
 obj/snrm.o: src/nr/snrm.c
 obj/nr/snrm.o: src/nr/snrm.c
+obj/dsprsax.o: src/nr/dsprsax.c
+obj/nr/dsprsax.o: src/nr/dsprsax.c
 obj/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
 obj/nr/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
-obj/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
-obj/nr/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
 obj/gradient_matrix.o: src/gradient_matrix.c inc/gradient_matrix.h
 obj/nr/gradient_matrix.o: src/gradient_matrix.c inc/gradient_matrix.h
+obj/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
+obj/nr/main.o: src/main.c inc/nr/nr.h inc/gradient_matrix.h inc/gnuplot_i.h
