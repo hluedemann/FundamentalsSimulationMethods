@@ -1,5 +1,5 @@
-extern unsigned long ija[];
-extern double sa[];
+extern unsigned long* ija;
+extern double* sa;
 
 void asolve(unsigned long n, double b[], double x[], int itrnsp)
 {

@@ -1,5 +1,5 @@
-extern unsigned long ija[];
-extern double sa[];
+extern unsigned long *ija;
+extern double *sa;
 
 void atimes(unsigned long n, double x[], double r[], int itrnsp)
 {

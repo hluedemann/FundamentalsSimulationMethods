@@ -4,7 +4,7 @@ augroup project
 augroup END
 set noexpandtab
 let &path.="inc,inc/integrator,"
-set makeprg=make\ -C\ /home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja
+set makeprg=make\ -C\ /home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3 
 nnoremap <F4> :make!<cr>
-nnoremap <F5> :!./diffusion<cr>
+nnoremap <F5> :!./poisson<cr>
 autocmd vimenter * call OpenNerdTree()

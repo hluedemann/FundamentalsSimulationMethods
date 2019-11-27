@@ -1,0 +1,146 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/asolve.o",
+            "src/nr/asolve.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/asolve.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/atimes.o",
+            "src/nr/atimes.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/atimes.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/linbcg.o",
+            "src/nr/linbcg.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/linbcg.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/snrm.o",
+            "src/nr/snrm.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/snrm.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/nrutil.o",
+            "src/nr/nrutil.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/nrutil.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/dsprsax.o",
+            "src/nr/dsprsax.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/dsprsax.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/gradient_matrix.o",
+            "src/gradient_matrix.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/gradient_matrix.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/main.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-Iinc/nr",
+            "-o",
+            "obj/nr/dsprstx.o",
+            "src/nr/dsprstx.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise6/freyja/3",
+        "file": "src/nr/dsprstx.c"
+    }
+]
