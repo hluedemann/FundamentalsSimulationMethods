@@ -20,7 +20,7 @@
  *  (user modified via configure) */
 
 /* Version identifier when configure was last run */
-#define CONFIGURE_DATE "Tue Jan  7 18:18:21 CET 2020"
+#define CONFIGURE_DATE "Tue Jan  7 19:07:39 CET 2020"
 
 /* Problem generator with which Athena is compiled */
 #define A_PROBLEM "kelvin"
@@ -68,7 +68,7 @@
 /* flux type
  * ROE_FLUX, HLLE_FLUX, HLLC_FLUX, HLLD_FLUX, FORCE_FLUX, EXACT_FLUX,
  * TWO_SHOCK_FLUX */
-#define HLLC_FLUX
+#define ROE_FLUX
 
 /* unsplit integrator:
  * CTU_INTEGRATOR or VL_INTEGRATOR */

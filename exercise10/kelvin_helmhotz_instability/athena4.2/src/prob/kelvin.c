@@ -35,19 +35,15 @@ void problem(DomainS *pDomain)
   double ampl =  par_getd("problem", "ampl");
   double kwave = 2 * 2.0 * M_PI / 1.0; 
 
+    for (k=ks; k<=ke; k++)
+      for (j=js; j<=je; j++)
+        for (i=is; i<=ie; i++)
+      {
+        cc_pos(pGrid, i, j, k, &x1, &x2, &x3);
 
-  for (k=ks; k<=ke; k++) 
-    for (j=js; j<=je; j++) 
-      for (i=is; i<=ie; i++) 
-	{
-	  cc_pos(pGrid, i, j, k, &x1, &x2, &x3); 
-          /* x1 and x2 now hold the x and y coordinates of the cell centre, respectively */
-
-	  /*** HERE CALCULATE YOUR DATA FOR THE MESH CELL (x1, x2, x3) ACCORDING TO THE PROBLEM AT HAND*/
-
-	  double dens = .... ;
-	  double vx =   .... ;
-	  double vy =   .... ;
+        double dens = 0 ;
+        double vx =   0 ;
+        double vy =   0 ;
 
 	  /************************************************************/
 

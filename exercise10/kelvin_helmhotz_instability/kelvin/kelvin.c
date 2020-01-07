@@ -33,7 +33,12 @@ void problem(DomainS *pDomain)
   double v2 = par_getd("problem", "vx2");
   double pressure = par_getd("problem", "pressure");
   double ampl =  par_getd("problem", "ampl");
-  double kwave = 2 * 2.0 * M_PI / 1.0; 
+  double kwave = 2 * 2.0 * M_PI / 1.0;
+    
+  double L = (pGrid->MaxX[0]-pGrid->MinX[0]);//*pGrid->dx1
+  printf(L);
+    
+  double sigma = 0.01
 
 
   for (k=ks; k<=ke; k++) 
@@ -45,9 +50,9 @@ void problem(DomainS *pDomain)
 
 	  /*** HERE CALCULATE YOUR DATA FOR THE MESH CELL (x1, x2, x3) ACCORDING TO THE PROBLEM AT HAND*/
 
-	  double dens = .... ;
-	  double vx =   .... ;
-	  double vy =   .... ;
+	  double dens = 0 ;
+	  double vx =   0 ;
+	  double vy =   0 ;
 
 	  /************************************************************/
 
