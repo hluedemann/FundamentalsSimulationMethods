@@ -30,18 +30,18 @@ palette = rainbow
 <time>
 cour_no         = 0.4       # The Courant, Friedrichs, & Lewy (CFL) Number
 nlim            = 40000     # cycle limit
-tlim            = 3.0      # time limit
+tlim            = 6.0      # time limit
 
 <domain1>
 level           = 0         # refinement level this Domain (root=0)
 
-Nx1             = 256        # Number of zones in X-direction
+Nx1             = 512        # Number of zones in X-direction
 x1min           = 0.0       # minimum value of X
 x1max           = 1.0       # maximum value of X
 bc_ix1          = 4         # inner-I (X) boundary flag  (4=periodic)
 bc_ox1          = 4         # outer-I (X) boundary flag
 
-Nx2             = 256        # Number of zones in Y-direction
+Nx2             = 512        # Number of zones in Y-direction
 x2min           = 0.0       # minimum value of Y
 x2max           = 1.0       # maximum value of Y
 bc_ix2          = 1         # inner-I (Y) boundary flag  (1=reflecting)
@@ -56,7 +56,7 @@ gamma           = 1.66667   # gamma = C_p/C_v
 pressure        = 1.0       # pressure
 density1        = 1.0       # density upper half
 density2        = 2.0       # density lower half
-vx1             = 5.3       # velocity of top half
-vx2             = 4.7      # velocity of lower half
+vx1             = 0.3       # velocity of top half
+vx2             = -0.3      # velocity of lower half
 ampl            = 0.05      # ampliture of perturbation
  
