@@ -17,6 +17,22 @@
 /*----------------------------------------------------------------------------*/
 /* problem:  */
 
+double calcInitDensity(double roh1, double roh2, double y, double sigma)
+{
+  return roh1 + (roh2 -roh1) / ( 1 + exp((y - 0.5) / sigma));
+}
+
+double calcInitVelX(double vx1, double vx2, double y, double sigma)
+{
+  return vx1 + (vx2 - vx1) / (1 + exp((y - 0.5) / sigma));
+}
+
+double calcVelocityPertub(double x, double y, double k, double A)
+{
+  return A * cos(k*x) * exp(-k * abs(y - 0.5));
+}
+
+
 void problem(DomainS *pDomain)
 {
   GridS *pGrid = pDomain->Grid;
@@ -33,7 +49,10 @@ void problem(DomainS *pDomain)
   double v2 = par_getd("problem", "vx2");
   double pressure = par_getd("problem", "pressure");
   double ampl =  par_getd("problem", "ampl");
-  double kwave = 2 * 2.0 * M_PI / 1.0; 
+  double L = par_getd("problem", "Nx1");
+  double kwave = 2 * 2.0 * M_PI / L; 
+  double sigma = 0.01;
+  double A = 0.05;
 
     for (k=ks; k<=ke; k++)
       for (j=js; j<=je; j++)
@@ -41,9 +60,9 @@ void problem(DomainS *pDomain)
       {
         cc_pos(pGrid, i, j, k, &x1, &x2, &x3);
 
-        double dens = 0 ;
-        double vx =   0 ;
-        double vy =   0 ;
+        double dens = calcInitDensity(dens1, dens2, x2, sigma);
+        double vx =   calcInitVelX(v1, v2, x2, sigma);
+        double vy =   calcVelocityPertub(x1, x2, k, A);
 
 	  /************************************************************/
 
