@@ -29,7 +29,7 @@ double calcInitVelX(double vx1, double vx2, double y, double sigma)
 
 double calcVelocityPertub(double x, double y, double k, double A)
 {
-  return A * cos(k*x) * exp(-k * abs(y - 0.5));
+  return A * cos(k*x) * exp(-k * fabs(y - 0.5));
 }
 
 
@@ -49,7 +49,7 @@ void problem(DomainS *pDomain)
   double v2 = par_getd("problem", "vx2");
   double pressure = par_getd("problem", "pressure");
   double ampl =  par_getd("problem", "ampl");
-  double L = par_getd("problem", "Nx1");
+  double L = par_getd("domain1", "Nx1");
   double kwave = 2 * 2.0 * M_PI / L; 
   double sigma = 0.01;
   double A = 0.05;
@@ -62,7 +62,7 @@ void problem(DomainS *pDomain)
 
         double dens = calcInitDensity(dens1, dens2, x2, sigma);
         double vx =   calcInitVelX(v1, v2, x2, sigma);
-        double vy =   calcVelocityPertub(x1, x2, k, A);
+        double vy =   calcVelocityPertub(x1, x2, kwave, A);
 
 	  /************************************************************/
 
