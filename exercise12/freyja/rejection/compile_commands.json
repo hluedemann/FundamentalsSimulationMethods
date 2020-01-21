@@ -1,0 +1,36 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-mrdrnd",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/random_gen.o",
+            "src/random_gen.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise12/freyja/rejection",
+        "file": "src/random_gen.c"
+    },
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-O3",
+            "-Wall",
+            "-g",
+            "-mrdrnd",
+            "-Iinc",
+            "-I./inc",
+            "-o",
+            "obj/monte_carlo.o",
+            "src/monte_carlo.c"
+        ],
+        "directory": "/home/freyja/uni/fund_sim/FundamentalsSimulationMethods/exercise12/freyja/rejection",
+        "file": "src/monte_carlo.c"
+    }
+]
