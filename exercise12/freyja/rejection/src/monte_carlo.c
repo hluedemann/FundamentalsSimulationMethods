@@ -46,3 +46,35 @@ monte_carlo
 	}
 	return draws;
 }
+
+size_t
+monte_carlo_enveloped
+	(size_t n,
+	 distribution_f dist,
+	 void* param,
+	 distribution_f envelop,
+	 distribution_f inv_envelop,
+	 void* envelop_params,
+	 double I,
+	 double* samples)
+{
+	size_t draws = 0;
+	for(size_t i = 0; i < n; ++i)
+	{
+		double x, y;
+		while(1)
+		{
+			++draws;
+			double c = random_gen(0, I);
+			x = inv_envelop(c, envelop_params);
+			double f = envelop(x, envelop_params);
+			y = random_gen(0, f);
+			if(y < dist(x, param))
+			{
+				break;
+			}
+		}
+		samples[i] = x;
+	}
+	return draws;	
+}

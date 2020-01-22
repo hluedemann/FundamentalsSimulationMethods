@@ -23,6 +23,7 @@ typedef double
 			(double,
 			 void*);		
 
+#include<stddef.h>
 /**
  * @brief Generates a sample of points following the provided distribution in the intervall [a,b], generated with the rejection method
  *
@@ -36,8 +37,6 @@ typedef double
  *
  * @return number of total samples drawn
  */
-#include<stddef.h>
-
 size_t
 monte_carlo
 	(size_t n,
@@ -46,6 +45,33 @@ monte_carlo
 	 double dist_max,
 	 double a,
 	 double b,
+	 double* samples);
+
+
+/**
+ * @brief Generates a sample of points following the provided distribution by using a known envelop 
+ *
+ * @param n number of sampling points
+ * @param dist the distribution of points
+ * @param param parameters for the distribution 
+ * @param dist_max maximum value of the distribution on the intervall given by the envelop 
+ * @param envelop envelop function
+ * @param inv_envelop inverse of the integral of the envelop function
+ * @param envelop_params parameters for the envelop and its inverse
+ * @param I value of the integral over the envelop 
+ * @param samples array of at least size n, samles will be stored in here
+ *
+ * @return number of total samples drawn
+ */
+size_t
+monte_carlo_enveloped
+	(size_t n,
+	 distribution_f dist,
+	 void* param,
+	 distribution_f envelop,
+	 distribution_f inv_envelop,
+	 void* envelop_params,
+	 double I,
 	 double* samples);
 	
 

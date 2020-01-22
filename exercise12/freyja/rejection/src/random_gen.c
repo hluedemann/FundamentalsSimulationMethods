@@ -18,12 +18,11 @@
 
 #include"random_gen.h"
 #include<limits.h>
-
-#ifndef __RDRND__
+//#ifndef __RDRND__
 #include<stdlib.h>
 #include<time.h>
 static int init = 0;
-#endif
+//#endif
 
 double
 random_gen
@@ -32,10 +31,12 @@ random_gen
 {
 	unsigned long long r;
 	double rnd;
+/*
 #ifdef __RDRND__ 
 	__builtin_ia32_rdrand64_step(&r);
 	rnd = (double)r/( (double) ULLONG_MAX);
 #else
+*/
 	if(init == 0)
 	{
 		srand(time(0));
@@ -43,7 +44,7 @@ random_gen
 	}
 	r = rand();
 	rnd = (double) r / ( (double) RAND_MAX);
-#endif
+//#endif
 	rnd *= b - a;
 	rnd += a;
 	return rnd;

@@ -1,4 +1,4 @@
-CFLAGS = -O3 -Wall -g #-mrdrnd
+CFLAGS = -O3 -Wall -g 
 COMPILER = clang 
 LINK := -g -lm
 INCLUDE_OPTIONS := -I./inc
@@ -28,7 +28,8 @@ directories:; mkdir -p $(OBJDIRS)
 clean: ; rm -f $(TARGETS) $(OBJ) 
 depend: ; ./gcc-makedepend $(addprefix -p ,$(OBJDIRS)) $(CFLAGS) $(INCLUDES) $(SRC)
 # DO NOT DELETE
-obj/random_gen.o: src/random_gen.c inc/random_gen.h
-obj/distr.o: src/distr.c
+obj/gnuplot_i.o: src/gnuplot_i.c inc/gnuplot_i.h
+obj/distr.o: src/distr.c inc/distr.h
 obj/monte_carlo.o: src/monte_carlo.c inc/monte_carlo.h inc/random_gen.h
-obj/main.o: src/main.c inc/monte_carlo.h inc/distr.h
+obj/main.o: src/main.c inc/monte_carlo.h inc/distr.h inc/gnuplot_i.h
+obj/random_gen.o: src/random_gen.c inc/random_gen.h
